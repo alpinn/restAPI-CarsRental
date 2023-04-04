@@ -13,10 +13,9 @@ class Car {
   constructor(params) {
     this.id = this.#generateId();
     this.name = params.name;
-    this.type = params.type;
     this.rentPerDay = Number(params.rentPerDay);
     this.size = params.size;
-    this.photo = params.photo;
+    this.picture_url = params.picture_url;
     this.createdAt = new Date();
   }
 
@@ -37,10 +36,9 @@ class Car {
         ? {
             ...car,
             name: params.name || car.name,
-            type: params.type || car.type,
             rentPerDay: Number(params.rentPerDay) || car.rentPerDay,
             size: params.size || car.size,
-            photo: params.photo || car.photo,
+            picture_url: params.picture_url || car.picture_url,
             createdAt: new Date(),
           }
         : car

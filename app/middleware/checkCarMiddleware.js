@@ -14,6 +14,4 @@ const checkCar = (req, res, next) => {
   next();
 };
 
-module.exports = {
-  checkCar,
-};
+module.exports = checkCar;
