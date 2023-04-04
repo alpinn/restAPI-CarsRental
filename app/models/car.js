@@ -49,9 +49,11 @@ class Car {
 
   static create = (params) => {
     try {
-      let cars = new this(params);
-      this.listCar.push(cars);
-      save(this.listCar);
+      let cars = new this(params); //object class
+
+      this.listCar.push(cars); //masukin ke list
+
+      save(this.listCar); //overwrite file
     } catch (error) {
       console.log(error.message);
     }

@@ -1,10 +1,20 @@
 const Car = require("../models/car.js");
 
+// - url
+// - middleware (sebuah aksi sebelum ke controller)
+// - controller
+// - fungsi ke data (database/json)
+
 module.exports = {
   createCar: function (req, res) {
     try {
-      const createdCar = req.body;
-      Car.create(createdCar);
+      const carDatas = req.body;
+      const picture_url = req.imgData;
+      const data = {
+        ...carDatas,
+        picture_url,
+      };
+      Car.create(data); //dari Class Car
       res.status(201).json({
         message: "Success Add Data!",
       });
@@ -14,7 +24,7 @@ module.exports = {
   },
 
   getAllCar: function (req, res) {
-    let cars = Car.list();
+    let cars = Car.list(); //gunain method class Car
     res.status(200).json({
       message: "Success Get All Car!",
       data: cars,
@@ -45,7 +55,12 @@ module.exports = {
     try {
       const { id } = req.car;
       const updatedCar = req.body;
-      Car.update(id, updatedCar);
+      const picture_url = req.imgData || req.car.picture_url;
+      const data = {
+        ...updatedCar,
+        picture_url,
+      };
+      Car.update(id, data);
       res.status(201).json({
         message: "Success Update Data!",
       });

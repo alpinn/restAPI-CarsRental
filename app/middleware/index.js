@@ -1,7 +1,11 @@
-const uploadImg = require("./imageUpMiddleware.js");
+const upMemoryImg = require("./imgMemoryMiddleware.js");
 const checkCar = require("./checkCarMiddleware.js");
+const cloudinaryUpload = require("./cloudinaryUpMiddleware.js");
+const cloudinaryDelete = require("./cloudinaryDelMiddleware.js");
 
 module.exports = {
-  uploadImg,
+  upMemoryImg,
   checkCar,
+  cloudinaryUpload,
+  cloudinaryDelete,
 };
